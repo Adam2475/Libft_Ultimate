@@ -37,5 +37,5 @@ char	*ft_strchr(char *s, int c)
 	}
 	if (s[i] != c)
 		return (NULL);
-	return (&s[i]);
+	return ((s + i));
 }
