@@ -30,8 +30,8 @@ void	*ft_memchr(void *s, int c, size_t n)
 	i = 0;
 	while(((char *)s)[i] != '\0' && (size_t)i < n)
 	{
-		if ((char *)s[i] == (char)c)
-			return (&s[i]);
+		if (((char *)s)[i] == (char)c)
+			return (&((void *)s)[i]);
 		i++;	
 	}
 	return (NULL);

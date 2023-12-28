@@ -24,8 +24,28 @@
      the first occurrence of little is returned.
 */
 
-char	*strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	int	i;
 	int	j;
+
+     i = 0;
+     if (!little)
+          return (big);
+     else if (!big)
+          return (0);
+     	while (i < len && big[i] != '\0')
+	{
+		j = 0;
+		while (big[i + j] == little[j] && i + j < len)
+		{
+			if (little[j + 1] == '\0')
+			{
+				return ((char *)big + i);
+			}
+			j++;
+	}
+		i++;
+	}
+	return (NULL);
 }
