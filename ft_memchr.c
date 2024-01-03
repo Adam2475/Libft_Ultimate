@@ -6,7 +6,7 @@
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:47:39 by adapassa          #+#    #+#             */
-/*   Updated: 2023/12/27 17:45:11 by adapassa         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:44:14 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	*ft_memchr(void *s, int c, size_t n)
 	int	i;
 
 	i = 0;
-	while(((char *)s)[i] != '\0' && (size_t)i < n)
+	while (((char *)s)[i] != '\0' && (size_t)i < n)
 	{
 		if (((char *)s)[i] == (char)c)
-			return (&((void *)s)[i]);
-		i++;	
+			return (s + i);
+		i++;
 	}
 	return (NULL);
 }

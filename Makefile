@@ -6,7 +6,7 @@
 #    By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/19 17:27:14 by adapassa          #+#    #+#              #
-#    Updated: 2023/12/23 16:46:42 by adapassa         ###   ########.fr        #
+#    Updated: 2024/01/03 21:17:52 by adapassa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC = ft_bzero.c ft_isalnum.c \
 		ft_putendl_fd.c ft_putnbr_fd.c \
 
 SRC_BONUS =	ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c \
-				ft_lstsize.c ft_lstdelone.c ft ft_lstlast.c \
+				ft_lstsize.c ft_lstdelone.c ft_lstlast.c \
 				ft_lstclear.c ft_lstiter.c ft_lstmap.c \
 
 OBJ = $(SRC:.c=.o)
@@ -57,7 +57,6 @@ fclean: clean
 re: fclean all
 
 bonus: $(OBJ) $(OBJ_BONUS)
-		@$(CC) $(SRC_BONUS)
 		@$(LIB) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 .PHONY: all clean fclean bonus

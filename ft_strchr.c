@@ -6,7 +6,7 @@
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:16:25 by adapassa          #+#    #+#             */
-/*   Updated: 2023/12/23 17:44:35 by adapassa         ###   ########.fr       */
+/*   Updated: 2024/01/03 21:17:18 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,22 @@
     '\0', these functions return a pointer to the terminator.
 */
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	char	*str;
 
+	str = (char *)s;
 	i = -1;
 	if (c == '\0')
-		return (&s[ft_strlen(s)]);
+		return (str + ft_strlen(s));
 	while (s[i] != c)
 	{
 		i++;
-		if (!s[i])
+		if (!str[i])
 			break ;
 	}
-	if (s[i] != c)
+	if (str[i] != c)
 		return (NULL);
-	return ((s + i));
+	return ((str + i));
 }

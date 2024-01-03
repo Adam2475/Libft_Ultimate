@@ -6,17 +6,17 @@
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:52:13 by adapassa          #+#    #+#             */
-/*   Updated: 2023/12/19 16:38:01 by adapassa         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:53:31 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_bzero(void *str, size_t n)
+void	ft_bzero(void *str, size_t n)
 {
-    size_t	i;
+	size_t	i;
 
-    i = 0;
-    while (i < n)
-    	((char *)str)[i++] = 0;
+	i = 0;
+	while (i < n)
+		((char *)str)[i++] = 0;
 }

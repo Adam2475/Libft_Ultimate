@@ -6,7 +6,7 @@
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:45:44 by adapassa          #+#    #+#             */
-/*   Updated: 2023/12/27 17:51:00 by adapassa         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:47:34 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	int	i;
 	int	j;
 
-     i = 0;
+	i = 0;
 	if ((!*big && !*little) || !*little)
 		return ((char *)big);
 	if (!*big)
 	{
 		return (0);
 	}
-     while (i < len && big[i] != '\0')
+	while (i < len && big[i] != '\0')
 	{
 		j = 0;
 		while (big[i + j] == little[j] && i + j < len)
@@ -46,7 +46,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 				return ((char *)big + i);
 			}
 			j++;
-	}
+		}
 		i++;
 	}
 	return (NULL);

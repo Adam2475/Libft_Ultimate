@@ -6,7 +6,7 @@
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 20:03:41 by adapassa          #+#    #+#             */
-/*   Updated: 2023/12/19 20:52:07 by adapassa         ###   ########.fr       */
+/*   Updated: 2024/01/03 21:12:08 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,18 @@
 	detection simple.
 */
 
-size_t  ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-    size_t  i;
+	size_t	i;
 
-    i = 0;
-    if (size == 0)
-        return (ft_strlen(src));
-    while (src[i] != '\0' && i < size - 1)
-    {
-        dest[i] = src[i];
-        i++;
-    }
-    dest[i] = '\0';
-    return (ft_strlen(src));
+	i = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while (src[i] != '\0' && i < size - 1)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (ft_strlen(src));
 }
-
-

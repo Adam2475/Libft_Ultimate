@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 20:35:19 by adapassa          #+#    #+#             */
-/*   Updated: 2024/01/03 20:35:22 by adapassa         ###   ########.fr       */
+/*   Created: 2024/01/03 20:51:49 by adapassa          #+#    #+#             */
+/*   Updated: 2024/01/03 20:51:51 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	(*del)(lst->content);
-	free(lst);
+	t_list	*tmp;
+
+	if (lst)
+	{
+		while (*lst)
+		{
+			tmp = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			(*lst) = tmp;
+		}
+	}
 }
-// lst : is the node to clear
-// del : is the address of the function used to delete the content 

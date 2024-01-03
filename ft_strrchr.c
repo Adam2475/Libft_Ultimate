@@ -6,7 +6,7 @@
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:28:30 by adapassa          #+#    #+#             */
-/*   Updated: 2023/12/20 19:02:47 by adapassa         ###   ########.fr       */
+/*   Updated: 2024/01/03 21:13:37 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@
 
 char	*ft_strrchr(char *s, int c)
 {
-	char *endPtr;
+	char	*endptr;
 
-	endPtr = s + ft_strlen(s);
-	while (endPtr >= s)
+	endptr = s + ft_strlen(s);
+	while (endptr >= s)
 	{
-		if(*endPtr == (char)c)
-			return (endPtr);
-		endPtr--;
+		if (*endptr == (char)c)
+			return (endptr);
+		endptr--;
 	}
 	if (!s)
 		return (s);
