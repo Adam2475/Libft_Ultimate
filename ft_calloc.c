@@ -6,7 +6,7 @@
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:29:52 by adapassa          #+#    #+#             */
-/*   Updated: 2024/01/03 20:29:53 by adapassa         ###   ########.fr       */
+/*   Updated: 2024/01/04 20:33:55 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ptr = malloc(nmemb * size);
 	if (nmemb == 0 || size == 0)
 	{
+		free(ptr);
 		return (malloc(0));
 	}
 	if (ptr == NULL)
 	{
+		free(ptr);
 		return (NULL);
 	}
 	ft_memset ((unsigned char *)ptr, 0, nmemb * size);

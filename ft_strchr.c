@@ -6,7 +6,7 @@
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:16:25 by adapassa          #+#    #+#             */
-/*   Updated: 2024/01/03 21:17:18 by adapassa         ###   ########.fr       */
+/*   Updated: 2024/01/04 21:20:00 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,17 @@ char	*ft_strchr(const char *s, int c)
 	char	*str;
 
 	str = (char *)s;
-	i = -1;
-	if (c == '\0')
+	i = 0;
+	if (c == 0)
 		return (str + ft_strlen(s));
-	while (s[i] != c)
+	while (s[i] != (unsigned char)c)
 	{
-		i++;
 		if (!str[i])
 			break ;
+		else
+			i++;
 	}
-	if (str[i] != c)
+	if (str[i] != (unsigned char)c)
 		return (NULL);
 	return ((str + i));
 }

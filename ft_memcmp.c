@@ -6,7 +6,7 @@
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:45:08 by adapassa          #+#    #+#             */
-/*   Updated: 2024/01/03 20:30:10 by adapassa         ###   ########.fr       */
+/*   Updated: 2024/01/04 20:35:57 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		return (0);
 	while ((size_t)i < n)
 	{
-		if (s1[i] != s2[i])
-			break ;
+		if (((char *)s1)[i] != ((char *)s2)[i])
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 		else
 			i++;
 	}
-	return ((int)(s1[i] - s2[i]));
+	return (0);
 }
