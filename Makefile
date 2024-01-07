@@ -47,7 +47,7 @@ $(NAME): $(OBJ)
 		@ echo "$(GREEN)$(NAME) compilata con successo❗️ 📁$(DEFAULT)"
 
 clean:
-		@ rm -f $(OBJ)
+		@ rm -f $(OBJ) $(OBJ_BONUS)
 		@ echo "$(CIANO)file oggetto di $(NAME) rimossi con successo❗️ 🪦$(DEFAULT)"
 
 fclean: clean
