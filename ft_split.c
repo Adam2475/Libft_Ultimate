@@ -45,6 +45,20 @@ static size_t	ft_superstrlen(const char *s, char c)
 	return (i);
 }
 
+char	**malloc_error(char **str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	return (NULL);
+}
+
 char	**ft_split(const char *s, char c)
 {
 	int		i[2];
@@ -64,6 +78,8 @@ char	**ft_split(const char *s, char c)
 			if (s[i[0]] != c)
 			{
 				str[i[1]] = ft_substr(s, i[0], ft_superstrlen(&s[i[0]], c));
+				if (!str[i[1]])
+					return (malloc_error(str));
 				i[0] = i[0] + ft_superstrlen(&s[i[0]], c);
 				break ;
 			}
