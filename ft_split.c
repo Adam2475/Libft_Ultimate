@@ -59,11 +59,27 @@ char	**malloc_error(char **str)
 	return (NULL);
 }
 
+char	**main_procedure(char **str, int *i, char *s, char c)
+{
+	while (s[++i[0]] != 0)
+	{
+		if (s[i[0]] != c)
+		{
+			str[i[1]] = ft_substr(s, i[0], ft_superstrlen(&s[i[0]], c));
+			if (!str[i[1]])
+				return (malloc_error(str));
+			i[0] = i[0] + ft_superstrlen(&s[i[0]], c);
+			break ;
+		}
+	}
+	i[1]++;
+}
+
 char	**ft_split(const char *s, char c)
 {
-	int		i[2];
 	int		ns;
 	char	**str;
+	int		i[2];
 
 	i[1] = 0;
 	i[0] = -1;
@@ -73,18 +89,8 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	while (ns--)
 	{
-		while (s[++i[0]] != 0)
-		{
-			if (s[i[0]] != c)
-			{
-				str[i[1]] = ft_substr(s, i[0], ft_superstrlen(&s[i[0]], c));
-				if (!str[i[1]])
-					return (malloc_error(str));
-				i[0] = i[0] + ft_superstrlen(&s[i[0]], c);
-				break ;
-			}
-		}
-		i[1]++;
+		if (main_procedure(str, i, (char *)s, c) == NULL)
+			return (NULL);
 	}
 	str[i[1]] = 0;
 	return (str);
