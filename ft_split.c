@@ -56,7 +56,7 @@ char	**ft_split(const char *s, char c)
 	ns = ft_count(s, c);
 	str = ft_calloc((ns + 1), sizeof(char *));
 	if (!str)
-		return (0);
+		return (NULL);
 	while (ns--)
 	{
 		while (s[++i[0]] != 0)
