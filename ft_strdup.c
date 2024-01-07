@@ -31,6 +31,8 @@ char	*ft_strdup(const char *s)
 
 	l = ft_strlen(s);
 	pt1 = malloc(sizeof(char) * (l + 1));
+	if (!pt1)
+		return (0);
 	ft_memcpy(pt1, s, l);
 	pt1[l] = '\0';
 	return (pt1);

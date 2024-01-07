@@ -54,6 +54,8 @@ char	*ft_itoa(int n)
 		y = n;
 	z = ft_count(n);
 	str = malloc(sizeof(char) * (z + 1));
+	if (!str)
+		return (0);
 	str[z--] = '\0';
 	while (z >= 0)
 	{
