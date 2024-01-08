@@ -6,7 +6,7 @@
 /*   By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:24:07 by adapassa          #+#    #+#             */
-/*   Updated: 2024/01/03 20:25:03 by adapassa         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:23:34 by adapassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ char	**main_procedure(char **str, int *i, char *s, char c)
 		}
 	}
 	i[1]++;
+	return (str);
 }
 
 char	**ft_split(const char *s, char c)

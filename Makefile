@@ -6,12 +6,12 @@
 #    By: adapassa <adapassa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/19 17:27:14 by adapassa          #+#    #+#              #
-#    Updated: 2024/01/04 18:10:04 by adapassa         ###   ########.fr        #
+#    Updated: 2024/01/08 14:44:41 by adapassa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-CFLAG = -Wall -Wextra -Werror -g
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 LIB = ar rcs $(NAME)
 # Directory per i file oggetto creati
