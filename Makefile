@@ -14,45 +14,67 @@ CC = gcc
 CFLAG = -Wall -Wextra -Werror -g
 NAME = libft.a
 LIB = ar rcs $(NAME)
+# Directory per i file oggetto creati
+OBJ_DIR = obj/
+SRC_DIR = ./
 
-SRC = ft_bzero.c ft_isalnum.c \
-		ft_isalpha.c ft_isascii.c \
-		ft_isdigit.c ft_isprint.c ft_memset.c \
-		ft_strlen.c ft_memcpy.c ft_memmove.c \
-		ft_strlcpy.c ft_strlcat.c ft_toupper.c \
-		ft_tolower.c ft_strchr.c ft_strrchr.c \
-		ft_strncmp.c ft_memchr.c ft_strnstr.c \
-		ft_atoi.c ft_calloc.c ft_strdup.c \
-		ft_substr.c ft_strjoin.c ft_strtrim.c \
-		ft_split.c ft_itoa.c ft_strmapi.c \
-		ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
-		ft_putendl_fd.c ft_putnbr_fd.c ft_memcmp.c \
+SRCS = ft_bzero ft_isalnum \
+		ft_isalpha ft_isascii \
+		ft_isdigit ft_isprint ft_memset \
+		ft_strlen ft_memcpy ft_memmove \
+		ft_strlcpy ft_strlcat ft_toupper \
+		ft_tolower ft_strchr ft_strrchr \
+		ft_strncmp ft_memchr ft_strnstr \
+		ft_atoi ft_calloc ft_strdup \
+		ft_substr ft_strjoin ft_strtrim \
+		ft_split ft_itoa ft_strmapi \
+		ft_striteri ft_putchar_fd ft_putstr_fd \
+		ft_putendl_fd ft_putnbr_fd ft_memcmp \
 
-SRC_BONUS =	ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c \
-				ft_lstsize.c ft_lstdelone.c ft_lstlast.c \
-				ft_lstclear.c ft_lstiter.c ft_lstmap.c \
+SRCS_BONUS =	ft_lstnew ft_lstadd_back ft_lstadd_front \
+				ft_lstsize ft_lstdelone ft_lstlast \
+				ft_lstclear ft_lstiter ft_lstmap \
 
-OBJ = $(SRC:.c=.o)
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
+SRC = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRCS)))
+SRC_BONUS = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRCS_BONUS)))
+OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRCS)))
+OBJ_BONUS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRCS_BONUS)))
+
+# Special target for creating obj directory
+OBJF = .cache_exists
 
 DEFAULT = \033[0;39m
 GREEN = \033[0;92m
 RED = \033[0;91m
 CIANO = \033[0;96m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+GRAY = \033[0;90m
+WHITE = \033[0;97m
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@ $(LIB) $(NAME) $(OBJ)
-		@ echo "$(GREEN)$(NAME) compilata con successo❗️ 📁$(DEFAULT)"
+		@$(LIB) $(NAME) $(OBJ)
+		@echo "$(GREEN)$(NAME) compilata con successo❗️ 📁$(DEFAULT)"
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
+		@echo "$(YELLOW)Compiling: $< $(DEFAULT)"
+		@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+$(OBJF):
+		@mkdir -p $(OBJ_DIR)
 
 clean:
-		@ rm -f $(OBJ) $(OBJ_BONUS)
-		@ echo "$(CIANO)file oggetto di $(NAME) rimossi con successo❗️ 🪦$(DEFAULT)"
+		@rm -f $(OBJ) $(OBJ_BONUS)
+		@rm -rf $(OBJ_DIR)
+		@echo "$(CIANO)directory OBJ rimossa...$(DEFAULT)"
+		@echo "$(CIANO)file oggetto di $(NAME) rimossi con successo❗️ 🪦$(DEFAULT)"
 
 fclean: clean
-		@ rm -f $(NAME)
-		@ echo "$(RED)$(NAME) rimossa con successo❗️ ❌$(DEFAULT)"
+		@rm -f $(NAME)
+		@echo "$(RED)$(NAME) rimossa con successo❗️ ❌$(DEFAULT)"
 
 re: fclean all
 
